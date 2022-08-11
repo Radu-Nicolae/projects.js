@@ -1,0 +1,65 @@
+header{
+    background-color:antiquewhite;
+    text-align:center;
+    padding: 0.5px 0 0.5px 0;
+    font-size: 300%;;
+}
+
+form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.addTask{
+    background-color: #ebebeb;
+    padding: 10px;
+    border: 1px solid #dbdbdb;
+    border-radius: 5px;
+}
+
+.search-query{
+    padding: 10px;
+    width: 40%;
+    border: 1px solid #dbdbdb;
+}
+
+.btnSubmit{
+    padding: 10px;
+    border: 1px solid #dbdbdb;
+
+    background-color: #0073bf;
+    color: white;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.task{
+    width: 50%;
+    border-bottom: 1px solid #dbdbdb;
+    text-align: center;
+    display: block;
+    white-space: pre;
+    content: "\a";
+    margin-left: 25%;
+}
+
+.btnClear{
+    background-color: #a13232;
+    border: 5px solid #a13232;
+    width: 50%;
+    margin-left: 25%;
+    color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 50px;
+    font-size: 110%;
+    margin-top: 100px;
+}
+
+.btnClear:hover{
+    background-color: white;
+    color: #a13232;
+    transition: 300ms;
+}
