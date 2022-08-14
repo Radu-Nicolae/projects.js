@@ -49,15 +49,36 @@ const btnNext = document.getElementById("next-btn");
 const btnSurprise = document.getElementById("random-btn");
 
 
-let currentItem = 4;
+let currentItem = 3;
 
 //load initial item
-window.addEventListener("DOMContentLoaded", function(){
-    const item = reviews[currentItem];
-
-
-
+window.addEventListener("DOMContentLoaded", function () {
+    showPerson(currentItem);
 })
 
 //show person based on item
-function showPerson
+function showPerson(person) {
+    const item = reviews[person];
+    image.src = item.img;
+    author.textContent = item.name;
+    job.textContent = item.job;
+    info.textContent = item.text;
+}
+
+//show next person
+btnNext.addEventListener("click", function () {
+    currentItem++;
+    if (currentItem > (reviews.length - 1)) {
+        currentItem = 0;
+    }
+    showPerson(currentItem);
+});
+
+//show previous person
+btnPrev.addEventListener("click", function () {
+    currentItem--;
+    if (currentItem < 0){
+        currentItem = reviews.length - 1;
+    }
+    showPerson(currentItem);
+})
