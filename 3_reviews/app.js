@@ -38,59 +38,57 @@ const reviews = [
     },
 ];
 
-
-const image = document.getElementById("person-img");
 const author = document.getElementById("author");
 const job = document.getElementById("job");
 const info = document.getElementById("info");
+const image = document.getElementById("person-img");
 
-const btnPrev = document.querySelector(".prev-btn");
-const btnNext = document.querySelector(".next-btn");
-const btnSurprise = document.querySelector(".random-btn");
+const prevBtn = document.querySelector(".prev-btn");
+const nextBtn = document.querySelector(".next-btn");
+const randomBtn = document.querySelector(".random-btn");
 
+let counter = 0;
 
-let currentItem = 3;
-
-//load initial item
 window.addEventListener("DOMContentLoaded", function () {
-    showPerson(currentItem);
+    displayPerson(reviews[counter]);
+
 })
 
-//show person based on item
-function showPerson(person) {
-    const item = reviews[person];
-    image.src = item.img;
-    author.textContent = item.name;
-    job.textContent = item.job;
-    info.textContent = item.text;
+function displayPerson(count) {
+    image.src = reviews[count].img;
+    author.textContent = reviews[count].name;
+    job.textContent = reviews[count].job;
+    info.textContent = reviews[count].text;
+    counter = reviews[count].id;
 }
 
-//show next person
-btnNext.addEventListener("click", function () {
-    currentItem++;
-    if (currentItem > (reviews.length - 1)) {
-        currentItem = 0;
+prevBtn.addEventListener("click", function () {
+    counter--;
+    if (counter < 0) {
+        counter = reviews.length - 1;
     }
-    showPerson(currentItem);
-});
-
-//show previous person
-btnPrev.addEventListener("click", function () {
-    currentItem--;
-    if (currentItem < 0){
-        currentItem = reviews.length - 1;
-    }
-    showPerson(currentItem);
+    displayPerson(counter);
 })
 
-btnSurprise.addEventListener("click", function(){
-    let randomNo;
-    do {
-        randomNo = Math.floor(Math.random() * (reviews.length - 1));
-       if (randomNo !== currentItem){
-           break;
-       }
-    } while (true)
-    currentItem = randomNo;
-    showPerson(randomNo);
+nextBtn.addEventListener("click", function () {
+    counter++;
+    if (counter > (reviews.length - 1)){
+        counter = 0;
+    }
+    displayPerson(counter);
+
 })
+
+
+//
+// btnSurprise.addEventListener("click", function(){
+//     let randomNo;
+//     do {
+//         randomNo = Math.floor(Math.random() * (reviews.length - 1));
+//        if (randomNo !== currentItem){
+//            break;
+//        }
+//     } while (true)
+//     currentItem = randomNo;
+//     showPerson(randomNo);
+// })
