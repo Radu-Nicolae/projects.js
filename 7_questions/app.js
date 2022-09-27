@@ -1,7 +1,5 @@
 const questions = document.querySelectorAll(".question");
 
-
-
 questions.forEach(function(question){
     const button = question.querySelector(".question-btn");
 
@@ -11,9 +9,10 @@ questions.forEach(function(question){
                 item.classList.remove("show-text");
             }
         })
+
+        question.classList.toggle("show-text");
     })
 
-    question.classList.toggle("show-text");
 
 });
 
